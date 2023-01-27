@@ -29,7 +29,7 @@ public class Graph : MonoBehaviour
         {
             Transform point = _points[i];
             Vector3 position = point.localPosition;
-            position.y = Mathf.Sin((position.x + time) * Mathf.PI);
+            position.y = FunctionLibrary.MultiWave(position.x,time);
             point.localPosition = position;
         }
     }
