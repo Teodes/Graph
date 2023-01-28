@@ -27,20 +27,13 @@ public class Graph : MonoBehaviour
 
     private void Update()
     {
+        FunctionLibrary.Function f = FunctionLibrary.GetFunction(function);
         float time = Time.time;
         for (int i = 0; i < _points.Length; i++)
         {
             Transform point = _points[i];
             Vector3 position = point.localPosition;
-            if (function == 0) {
-                position.y = FunctionLibrary.Wave(position.x, time);
-            }
-            else if (function == 1) {
-                position.y = FunctionLibrary.MultiWave(position.x, time);
-            }
-            else {
-                position.y = FunctionLibrary.Ripple(position.x, time);
-            }
+            position.y = f(position.x, time);
             point.localPosition = position;
         }
     }
