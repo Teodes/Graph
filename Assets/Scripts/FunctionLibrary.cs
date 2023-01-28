@@ -1,4 +1,5 @@
-﻿using static UnityEngine.Mathf;
+﻿using System;
+using static UnityEngine.Mathf;
 using Vector3 = UnityEngine.Vector3;
 
 public static class FunctionLibrary
@@ -9,10 +10,11 @@ public static class FunctionLibrary
     {
         Wave,
         MultiWave,
-        Ripple
+        Ripple,
+        Sphere
     }
 
-    private static readonly Function[] Functions = { Wave, MultiWave, Ripple };
+    private static readonly Function[] Functions = { Wave, MultiWave, Ripple, Sphere };
     
     public static Function GetFunction (FunctionName name)
     {
@@ -50,5 +52,15 @@ public static class FunctionLibrary
         p.z = v;
         return p;
 
+    }
+
+    private static Vector3 Sphere(float u, float v, float t)
+    {
+        float r = Cos(0.5f * PI * v);
+        Vector3 p;
+        p.x = r * Sin(PI * u);
+        p.y = Sin(PI * 0.5f * v);
+        p.z = r * Cos(PI * u);
+        return p;
     }
 }
