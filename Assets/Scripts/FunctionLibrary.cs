@@ -5,16 +5,23 @@ public static class FunctionLibrary
     // El delegates es una declaración de Tipo, lo que significa que luego debe ser instanciada
     //Se crea una "firma", que corresponde a los parámetros del delegado. Siempre deben respetarse.
     public delegate float Function (float x, float t);
-    
+
+    public enum FunctionName
+    {
+        Wave,
+        MultiWave,
+        Ripple
+    }
+
     //Array del delegado llamado Functions
     private static readonly Function[] Functions = {Wave, MultiWave, Ripple};
     
     //Método del delegado, dicho método es estático pero eso no significa que
     //al llamarlo podamos omitir la llamada al tipo (el delegado en cuestión)
     //ya que el delegado no es estático.
-    public static Function GetFunction (int index)
+    public static Function GetFunction (FunctionName name)
     {
-        return Functions[index];
+        return Functions[(int)name];
     }
     //Gracias a que el método GetFunction es público, ya no existe la necesidad de que
     //los demás métodos lo sigan siendo.

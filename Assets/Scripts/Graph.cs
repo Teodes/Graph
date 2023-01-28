@@ -5,7 +5,7 @@ public class Graph : MonoBehaviour
     [SerializeField] private Transform pointPrefab;
     [SerializeField, Range(10,100)] private int resolution = 10;
     
-    [SerializeField, Range(0, 2)] private int function;
+    [SerializeField] private FunctionLibrary.FunctionName function;
     
     private Transform[] _points;
     private void Awake()
