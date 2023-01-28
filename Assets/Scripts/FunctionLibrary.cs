@@ -1,11 +1,9 @@
-﻿using System;
-using static UnityEngine.Mathf;
+﻿using static UnityEngine.Mathf;
 using Vector3 = UnityEngine.Vector3;
 
 public static class FunctionLibrary
 {
     public delegate Vector3 Function (float u, float v, float t);
-
     public enum FunctionName
     {
         Wave,
